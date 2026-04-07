@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Emerald Valley Cluster A-4 | Sovereign Ledger</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed-dim": "#dbb8ff",
+                        "on-secondary-fixed-variant": "#004d62",
+                        "on-secondary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "error-container": "#ffdad6",
+                        "on-surface": "#1b1b1b",
+                        "primary-fixed-dim": "#d7baff",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-container": "#9747ff",
+                        "on-primary": "#ffffff",
+                        "on-background": "#1b1b1b",
+                        "on-tertiary-fixed-variant": "#58367e",
+                        "tertiary": "#714e98",
+                        "on-secondary-container": "#005a71",
+                        "background": "#f9f9f9",
+                        "secondary-fixed": "#b9eaff",
+                        "inverse-primary": "#d7baff",
+                        "tertiary-container": "#8b67b2",
+                        "primary": "#7d23e4",
+                        "on-surface-variant": "#4b4355",
+                        "surface-container": "#eeeeee",
+                        "outline-variant": "#cec2d8",
+                        "outline": "#7d7387",
+                        "surface-container-high": "#e8e8e8",
+                        "on-tertiary-fixed": "#2b0250",
+                        "secondary-fixed-dim": "#57d5ff",
+                        "surface-bright": "#f9f9f9",
+                        "on-tertiary-container": "#0b001c",
+                        "surface-variant": "#e2e2e2",
+                        "secondary": "#006781",
+                        "surface-dim": "#dadada",
+                        "inverse-on-surface": "#f1f1f1",
+                        "surface-container-low": "#f3f3f3",
+                        "on-primary-fixed-variant": "#6100bd",
+                        "tertiary-fixed": "#efdbff",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed": "#290055",
+                        "secondary-container": "#57d5ff",
+                        "on-secondary-fixed": "#001f29",
+                        "primary-fixed": "#eddcff",
+                        "on-error": "#ffffff",
+                        "inverse-surface": "#303030",
+                        "surface": "#f9f9f9",
+                        "on-primary-container": "#ffffff",
+                        "surface-tint": "#7d23e5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-space-grotesk { font-family: 'Space Grotesk', sans-serif; }
+        .glass-panel {
+            backdrop-filter: blur(24px);
+            background: rgba(255, 255, 255, 0.7);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #7d23e4, #9747ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gauge-ring {
+            stroke-dasharray: 283;
+            stroke-dashoffset: 28; /* Example for 90% */
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary/20">
+<nav class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl flex justify-between items-center px-8 h-20 w-full shadow-sm">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tight text-purple-700 font-headline">Sovereign Ledger</span>
+<div class="hidden md:flex items-center gap-6">
+<a class="text-zinc-500 hover:text-purple-600 transition-colors font-medium" href="#">Dashboard</a>
+<a class="text-purple-700 font-bold border-b-2 border-purple-600" href="#">Land Records</a>
+<a class="text-zinc-500 hover:text-purple-600 transition-colors font-medium" href="#">Transfers</a>
+<a class="text-zinc-500 hover:text-purple-600 transition-colors font-medium" href="#">Document Vault</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden">
+<img alt="Administrator Profile" data-alt="clean professional headshot of a government administrator in minimalist tech attire" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuQIHLnN3sLjDP-JTgq2rXBBf5idhXaOMmiGU7gyGdsEKYTRB9cS-gZVqjiVKKkarPi2qEzHMfBZdFQ0QALt5CkV0KytRA5tqvQgHViCLdgJJCuxwJGCLR-JnJmDztsCL2I1rIvsNbkmQWPOe8hAl339NyXW3FcMEhvhv48od8Qvzp-Ga-7S-RsPf9o-u_Tfdr6Zl2NBSUwMfzdoC40zwdR_0yY_jILZfS_e-7_mAFblePcnlr7jOpGfMo6UMfSLkPTXkO94y0mcdy"/>
+</div>
+</div>
+</nav>
+<main class="pt-20 pb-32">
+<section class="relative w-full h-[716px] px-8 py-12">
+<div class="absolute inset-0 z-0 px-8 py-6">
+<div class="w-full h-full rounded-xl overflow-hidden shadow-2xl relative group">
+<img class="w-full h-full object-cover" data-alt="ultra-high-definition drone photography of lush emerald green rolling hills and precise land boundaries under ethereal golden morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDNsh2fFQ_N3HVL1yq34FB4foE4gwyU8PegroF1zMa4QFBGyhiHk-7l11fOgcyzR-ps9_huImeeqxYV-tbIsO9rzGfEDGDFhNZ10O0B8IVGPCk9f_TCHIwacyfeerdPSmMrkf0B4qCuJqq1YFh7f0AVJWvxtzVuBpgP3_f1nDD6TIBNtbpMdywCSdLTaqd68TSLaIheS5PhoPPAgF9Ny0w0E0sz62L2ChjPiGeYn4ckZDcT0ueelkdAJIQy9KNYv0ETSxtbNzAbVD1"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+</div>
+</div>
+<div class="relative z-10 h-full flex flex-col justify-end p-12 max-w-7xl mx-auto">
+<div class="glass-panel p-10 rounded-xl max-w-2xl border border-white/20 shadow-2xl">
+<div class="flex items-center gap-3 mb-4">
+<span class="px-4 py-1 rounded-full bg-primary/10 text-primary font-bold text-xs tracking-widest uppercase">Verified Asset</span>
+<span class="px-4 py-1 rounded-full bg-secondary/10 text-secondary font-bold text-xs tracking-widest uppercase">Institutional Tier</span>
+</div>
+<h1 class="text-5xl font-headline font-bold text-on-surface leading-tight mb-2">Emerald Valley Cluster A-4</h1>
+<p class="text-on-surface-variant text-lg font-light leading-relaxed mb-6">Coordinate Block: 45.2831° N, 122.9482° W — Sovereign High-Value Registry. A pristine 42-hectare parcel designated for regenerative agriculture and sustainable development.</p>
+<div class="flex gap-4">
+<button class="px-8 py-4 bg-gradient-to-r from-primary to-primary-container text-white font-bold rounded-full hover:scale-105 transition-transform">Download Deed</button>
+<button class="px-8 py-4 bg-surface-container-highest text-on-surface font-bold rounded-full hover:scale-105 transition-transform flex items-center gap-2">
+<span class="material-symbols-outlined">share</span> Share Record
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<section class="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 mt-12">
+<div class="lg:col-span-7 space-y-12">
+<div>
+<h2 class="text-3xl font-headline font-bold mb-8 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">history_edu</span>
+                        Ownership Timeline
+                    </h2>
+<div class="relative space-y-12 pl-8 border-l-2 border-outline-variant/30">
+<div class="relative">
+<div class="absolute -left-[41px] top-0 w-5 h-5 rounded-full bg-primary ring-8 ring-primary/10"></div>
+<div class="bg-surface-container-low p-8 rounded-xl hover:shadow-lg transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="font-bold text-xl">Current Custodian</h3>
+<p class="text-primary font-headline font-medium">Terraform Sovereign Trust</p>
+</div>
+<span class="text-sm font-label uppercase text-on-surface-variant opacity-60">Sept 2023 - Present</span>
+</div>
+<p class="text-on-surface-variant text-sm mb-4">Finalized under Registry Protocol v4.2. Fully collateralized digital asset with multisig governance.</p>
+<div class="flex gap-2">
+<span class="px-3 py-1 rounded-full bg-white text-[10px] font-bold border border-outline-variant/20">TXID: 0x4f...a29</span>
+<span class="px-3 py-1 rounded-full bg-white text-[10px] font-bold border border-outline-variant/20">BLOCK: 18,294,001</span>
+</div>
+</div>
+</div>
+<div class="relative opacity-70">
+<div class="absolute -left-[41px] top-0 w-5 h-5 rounded-full bg-outline ring-4 ring-background"></div>
+<div class="bg-surface-container-low p-8 rounded-xl">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="font-bold text-xl">Legacy Transfer</h3>
+<p class="text-on-surface font-headline font-medium">Greenfield Development Corp</p>
+</div>
+<span class="text-sm font-label uppercase text-on-surface-variant opacity-60">Jan 2018 - Sept 2023</span>
+</div>
+<p class="text-on-surface-variant text-sm">Transfer executed via standard institutional land grant. Historical records fully indexed in the Document Vault.</p>
+</div>
+</div>
+<div class="relative opacity-50">
+<div class="absolute -left-[41px] top-0 w-5 h-5 rounded-full bg-outline ring-4 ring-background"></div>
+<div class="bg-surface-container-low p-8 rounded-xl">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="font-bold text-xl">Primary Registry</h3>
+<p class="text-on-surface font-headline font-medium">National Land Bureau</p>
+</div>
+<span class="text-sm font-label uppercase text-on-surface-variant opacity-60">Origins - Jan 2018</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-tertiary-container/5 rounded-xl p-10 border border-tertiary-container/10">
+<h2 class="text-2xl font-headline font-bold mb-6 flex items-center gap-3 text-tertiary">
+<span class="material-symbols-outlined">analytics</span>
+                        Advanced Metrics
+                    </h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-white p-6 rounded-xl shadow-sm">
+<p class="text-xs font-label uppercase text-on-surface-variant mb-2">Soil Quality</p>
+<p class="text-2xl font-headline font-bold">94.2/100</p>
+<div class="w-full bg-zinc-100 h-1 mt-4 rounded-full">
+<div class="bg-secondary h-full rounded-full" style="width: 94%"></div>
+</div>
+</div>
+<div class="bg-white p-6 rounded-xl shadow-sm">
+<p class="text-xs font-label uppercase text-on-surface-variant mb-2">Water Access</p>
+<p class="text-2xl font-headline font-bold">Grade A</p>
+<div class="w-full bg-zinc-100 h-1 mt-4 rounded-full">
+<div class="bg-primary h-full rounded-full" style="width: 85%"></div>
+</div>
+</div>
+<div class="bg-white p-6 rounded-xl shadow-sm">
+<p class="text-xs font-label uppercase text-on-surface-variant mb-2">Market Volatility</p>
+<p class="text-2xl font-headline font-bold">Low</p>
+<div class="w-full bg-zinc-100 h-1 mt-4 rounded-full">
+<div class="bg-tertiary h-full rounded-full" style="width: 20%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-5">
+<div class="sticky top-28 space-y-8">
+<div class="bg-white rounded-xl shadow-2xl shadow-purple-500/5 p-10 border border-surface-container-highest">
+<h2 class="text-2xl font-headline font-bold mb-8 text-on-surface">AI Risk Analysis</h2>
+<div class="flex flex-col items-center justify-center mb-8">
+<div class="relative w-48 h-48">
+<svg class="w-full h-full">
+<circle cx="96" cy="96" fill="transparent" r="90" stroke="#f3f3f3" stroke-width="12"></circle>
+<circle class="gauge-ring" cx="96" cy="96" fill="transparent" r="90" stroke="#7d23e4" stroke-linecap="round" stroke-width="12"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-4xl font-headline font-bold">96%</span>
+<span class="text-[10px] font-label uppercase text-on-surface-variant">Safety Rating</span>
+</div>
+</div>
+<p class="mt-6 text-center text-on-surface-variant text-sm font-medium">Our neural engine has scanned 15 years of registry metadata. Integrity index is optimal.</p>
+</div>
+<ul class="space-y-4 mb-10">
+<li class="flex items-center gap-3 text-sm font-medium">
+<span class="material-symbols-outlined text-green-500" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                Zero Fraud Signals Detected
+                            </li>
+<li class="flex items-center gap-3 text-sm font-medium">
+<span class="material-symbols-outlined text-green-500" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                Clean Title Chain
+                            </li>
+<li class="flex items-center gap-3 text-sm font-medium">
+<span class="material-symbols-outlined text-green-500" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                No Overlapping Claims
+                            </li>
+</ul>
+<button class="w-full py-4 bg-on-surface text-white font-bold rounded-full hover:bg-zinc-800 transition-colors">Request Certified Audit</button>
+</div>
+<div class="bg-secondary p-8 rounded-xl text-white relative overflow-hidden group">
+<div class="relative z-10">
+<h3 class="text-xl font-headline font-bold mb-2">Registry Map</h3>
+<p class="text-secondary-fixed text-sm mb-6">Interactive spatial data view for Cluster A-4.</p>
+<div class="w-full aspect-video rounded-xl bg-on-secondary/10 overflow-hidden">
+<img class="w-full h-full object-cover opacity-50 group-hover:scale-110 transition-transform duration-700" data-alt="minimalist topographic map of a valley with purple and cyan boundary markers overlaying a satellite terrain view" data-location="Oregon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjxiQ446GtDH0qnV3I95iY3vqAGFA8EgJJ6V-T5FuXdKKhf5WU_tK-0bZZny2vnSOWZM_3Z2S7cAQ0O6sMFL5bWqfg9Th5meS44R-BtE8r6aEiF1kElooVR7hDvxUInuBO1SvQRoXP784JSZgyjaYwaMyvzRGPZEiMcHRvMcdve9jkO6KphYt5iy__-qDdRH3vWZIMNEvARXHdAJZgG7hudH4d_kt6JaAz4rA84MyqFPBMQg3z_r1btT_TjOmkw4net4_rOLSvDAwu"/>
+</div>
+</div>
+<div class="absolute -right-12 -bottom-12 w-48 h-48 bg-on-secondary/5 rounded-full blur-3xl"></div>
+</div>
+</div>
+</div>
+</section>
+<section class="max-w-7xl mx-auto px-8 mt-24">
+<h2 class="text-3xl font-headline font-bold mb-10">Property Assets</h2>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+<div class="bg-surface-container-low p-6 rounded-xl border border-transparent hover:border-primary/20 transition-all">
+<span class="material-symbols-outlined text-primary mb-4 text-3xl">cloud_done</span>
+<h4 class="font-bold mb-1">Deed NFT</h4>
+<p class="text-xs text-on-surface-variant">Immutable ERC-721 Representation</p>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl border border-transparent hover:border-primary/20 transition-all">
+<span class="material-symbols-outlined text-primary mb-4 text-3xl">map</span>
+<h4 class="font-bold mb-1">GIS Survey</h4>
+<p class="text-xs text-on-surface-variant">Precision Lidar Scan 2023</p>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl border border-transparent hover:border-primary/20 transition-all">
+<span class="material-symbols-outlined text-primary mb-4 text-3xl">description</span>
+<h4 class="font-bold mb-1">Tax History</h4>
+<p class="text-xs text-on-surface-variant">10 Years Cleared</p>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl border border-transparent hover:border-primary/20 transition-all">
+<span class="material-symbols-outlined text-primary mb-4 text-3xl">verified</span>
+<h4 class="font-bold mb-1">Eco-Credit</h4>
+<p class="text-xs text-on-surface-variant">Carbon Sequestration Report</p>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-zinc-950 text-white/60 py-20 px-8">
+<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="col-span-2">
+<span class="text-2xl font-headline font-bold text-white mb-6 block">Sovereign Ledger</span>
+<p class="max-w-md text-lg font-light">The institutional standard for digital land governance. Building trust through ethereal transparency and mathematical proof.</p>
+</div>
+<div>
+<h5 class="text-white font-bold mb-6">Navigation</h5>
+<ul class="space-y-4 text-sm">
+<li><a class="hover:text-primary" href="#">Dashboard</a></li>
+<li><a class="hover:text-primary" href="#">Global Registry</a></li>
+<li><a class="hover:text-primary" href="#">Security Audit</a></li>
+<li><a class="hover:text-primary" href="#">Documentation</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-white font-bold mb-6">Support</h5>
+<ul class="space-y-4 text-sm">
+<li><a class="hover:text-primary" href="#">Help Center</a></li>
+<li><a class="hover:text-primary" href="#">Legal Framework</a></li>
+<li><a class="hover:text-primary" href="#">API Status</a></li>
+<li><a class="hover:text-primary" href="#">System Architecture</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-7xl mx-auto border-t border-white/10 mt-20 pt-8 flex justify-between items-center text-xs">
+<span>© 2024 Sovereign Ledger Institutional Registry.</span>
+<div class="flex gap-6">
+<a class="hover:text-white" href="#">Privacy Policy</a>
+<a class="hover:text-white" href="#">Terms of Use</a>
+</div>
+</div>
+</footer>
+</body></html>

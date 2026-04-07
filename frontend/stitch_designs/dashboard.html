@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sovereign Ledger | Institutional Registry</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary-fixed-dim": "#dbb8ff",
+                      "on-secondary-fixed-variant": "#004d62",
+                      "on-secondary": "#ffffff",
+                      "error": "#ba1a1a",
+                      "error-container": "#ffdad6",
+                      "on-surface": "#1b1b1b",
+                      "primary-fixed-dim": "#d7baff",
+                      "surface-container-lowest": "#ffffff",
+                      "primary-container": "#9747ff",
+                      "on-primary": "#ffffff",
+                      "on-background": "#1b1b1b",
+                      "on-tertiary-fixed-variant": "#58367e",
+                      "tertiary": "#714e98",
+                      "on-secondary-container": "#005a71",
+                      "background": "#f9f9f9",
+                      "secondary-fixed": "#b9eaff",
+                      "inverse-primary": "#d7baff",
+                      "tertiary-container": "#8b67b2",
+                      "primary": "#7d23e4",
+                      "on-surface-variant": "#4b4355",
+                      "surface-container": "#eeeeee",
+                      "outline-variant": "#cec2d8",
+                      "outline": "#7d7387",
+                      "surface-container-high": "#e8e8e8",
+                      "on-tertiary-fixed": "#2b0250",
+                      "secondary-fixed-dim": "#57d5ff",
+                      "surface-bright": "#f9f9f9",
+                      "on-tertiary-container": "#0b001c",
+                      "surface-variant": "#e2e2e2",
+                      "secondary": "#006781",
+                      "surface-dim": "#dadada",
+                      "inverse-on-surface": "#f1f1f1",
+                      "surface-container-low": "#f3f3f3",
+                      "on-primary-fixed-variant": "#6100bd",
+                      "tertiary-fixed": "#efdbff",
+                      "on-tertiary": "#ffffff",
+                      "surface-container-highest": "#e2e2e2",
+                      "on-error-container": "#93000a",
+                      "on-primary-fixed": "#290055",
+                      "secondary-container": "#57d5ff",
+                      "on-secondary-fixed": "#001f29",
+                      "primary-fixed": "#eddcff",
+                      "on-error": "#ffffff",
+                      "inverse-surface": "#303030",
+                      "surface": "#f9f9f9",
+                      "on-primary-container": "#ffffff",
+                      "surface-tint": "#7d23e5"
+              },
+              "borderRadius": {
+                      "DEFAULT": "1rem",
+                      "lg": "2rem",
+                      "xl": "3rem",
+                      "full": "9999px"
+              },
+              "fontFamily": {
+                      "headline": ["Space Grotesk"],
+                      "body": ["Inter"],
+                      "label": ["Inter"]
+              }
+            },
+          },
+        }
+      </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary/20 selection:text-primary overflow-x-hidden">
+<div class="flex min-h-screen">
+<!-- SideNavBar Component -->
+<aside class="hidden md:flex h-screen w-72 bg-zinc-50 dark:bg-zinc-900 font-headline sticky left-0 top-0 flex-col p-6 space-y-4 rounded-r-[3rem] shadow-2xl shadow-purple-500/5 z-40">
+<div class="flex items-center gap-4 px-4 py-8">
+<div class="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-primary-container flex items-center justify-center text-white shadow-lg shadow-primary/30">
+<span class="material-symbols-outlined" data-icon="account_balance">account_balance</span>
+</div>
+<div class="flex flex-col">
+<span class="text-lg font-black text-purple-700 dark:text-purple-300 leading-none">Sovereign Ledger</span>
+<span class="text-[10px] uppercase tracking-widest text-zinc-400 font-bold mt-1">Institutional Registry</span>
+</div>
+</div>
+<nav class="flex-1 space-y-2 mt-8">
+<!-- Dashboard Active -->
+<a class="bg-purple-600 text-white rounded-full shadow-lg shadow-purple-500/20 flex items-center gap-4 px-6 py-4 transition-all group" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-medium">Dashboard</span>
+</a>
+<a class="text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-800 rounded-full flex items-center gap-4 px-6 py-4 transition-all hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance">account_balance</span>
+<span class="font-medium">Land Records</span>
+</a>
+<a class="text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-800 rounded-full flex items-center gap-4 px-6 py-4 transition-all hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="swap_horiz">swap_horiz</span>
+<span class="font-medium">Transfers</span>
+</a>
+<a class="text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-800 rounded-full flex items-center gap-4 px-6 py-4 transition-all hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="cloud_done">cloud_done</span>
+<span class="font-medium">Document Vault</span>
+</a>
+</nav>
+<div class="pt-8 border-t border-zinc-100 dark:border-zinc-800">
+<button class="w-full py-4 px-6 bg-surface-container-highest text-on-surface font-bold rounded-full hover:scale-105 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                    New Record
+                </button>
+<a class="text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-800 rounded-full flex items-center gap-4 px-6 py-4 mt-4 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+<span class="font-medium">Support</span>
+</a>
+</div>
+</aside>
+<main class="flex-1 flex flex-col min-w-0">
+<!-- TopNavBar Component -->
+<header class="fixed top-0 w-full z-30 bg-white/70 dark:bg-zinc-950/70 backdrop-blur-xl flex justify-between items-center px-8 h-20 shadow-sm dark:shadow-none font-headline">
+<div class="flex items-center gap-8 flex-1">
+<div class="relative w-full max-w-md hidden lg:block">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-zinc-400">search</span>
+<input class="w-full bg-zinc-100/50 dark:bg-zinc-800/50 border-none rounded-full pl-12 pr-6 py-2.5 focus:ring-2 focus:ring-primary/20 text-sm" placeholder="Search Plot ID, Owner, or Region..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2.5 rounded-full hover:bg-zinc-100 text-zinc-600 transition-colors relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-primary rounded-full"></span>
+</button>
+<button class="p-2.5 rounded-full hover:bg-zinc-100 text-zinc-600 transition-colors">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="h-8 w-[1px] bg-zinc-200 mx-2"></div>
+<div class="flex items-center gap-3">
+<img alt="Administrator Profile" class="w-10 h-10 rounded-full object-cover ring-2 ring-primary/10" data-alt="Close-up portrait of a professional male administrator in a modern office with soft natural lighting and neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6qdPbG_InS8YZ8ReSobLSntaILALlZA2lOdfXlgXsvtjTUBpBMJfpg9YtHDHmpWP8s-XGKIr5ywL_abCOIcmH_6UcAZvJUwLQ0EXj2tjbgA9KmP0EiBJBe6RFyYfr0i3CvMgoFFI7ojSseQe0kgpLJMorqsgor-iGRocpLEOnRVGxsPhAreRfyPHZjQYDqWWpiT6Pf5X9nmrdvn__koHfqRcrluSmN_7cS1McInU0HQgEUNVssdhVcuV-fknbwR2ir_Mvl_pIJZ3S"/>
+<div class="hidden sm:block">
+<p class="text-sm font-bold text-on-surface">Alex Sovereign</p>
+<p class="text-[10px] text-zinc-500 font-bold uppercase tracking-wider">Registry Admin</p>
+</div>
+</div>
+</div>
+</header>
+<!-- Dashboard Content -->
+<div class="pt-28 px-8 pb-12 space-y-12">
+<!-- Hero Section -->
+<section class="flex flex-col md:flex-row justify-between items-end gap-6">
+<div class="space-y-2">
+<h1 class="text-4xl lg:text-5xl font-headline font-bold text-on-surface tracking-tight leading-none">
+                            Institutional <span class="text-primary italic">Overview</span>
+</h1>
+<p class="text-zinc-500 max-w-lg font-light text-lg">Managing the digital sovereignty of territorial assets with cryptographic precision.</p>
+</div>
+<div class="flex gap-4">
+<div class="bg-surface-container px-6 py-3 rounded-full flex items-center gap-3">
+<div class="w-3 h-3 rounded-full bg-emerald-500"></div>
+<span class="text-xs font-bold font-headline uppercase tracking-widest text-on-surface-variant">System Status: Optimal</span>
+</div>
+</div>
+</section>
+<!-- Summary Cards (Rounded Full) -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Total Properties -->
+<div class="bg-white rounded-full p-6 flex items-center gap-6 shadow-xl shadow-purple-500/5 group hover:scale-[1.02] transition-transform duration-300">
+<div class="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined scale-150" data-icon="location_city">location_city</span>
+</div>
+<div class="flex-1">
+<p class="text-xs font-bold font-headline uppercase tracking-widest text-zinc-400">Total Properties</p>
+<h3 class="text-3xl font-headline font-bold text-on-surface">12,482</h3>
+<div class="mt-1 text-emerald-500 text-xs font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="trending_up">trending_up</span>
+                                +2.4% this month
+                            </div>
+</div>
+</div>
+<!-- Under Review -->
+<div class="bg-white rounded-full p-6 flex items-center gap-6 shadow-xl shadow-cyan-500/5 group hover:scale-[1.02] transition-transform duration-300">
+<div class="w-20 h-20 rounded-full bg-secondary-container/20 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined scale-150" data-icon="clinical_notes">clinical_notes</span>
+</div>
+<div class="flex-1">
+<p class="text-xs font-bold font-headline uppercase tracking-widest text-zinc-400">Under Review</p>
+<h3 class="text-3xl font-headline font-bold text-on-surface">142</h3>
+<div class="mt-1 text-primary text-xs font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span>
+                                12 pending today
+                            </div>
+</div>
+</div>
+<!-- High Risk -->
+<div class="bg-white rounded-full p-6 flex items-center gap-6 shadow-xl shadow-red-500/5 group hover:scale-[1.02] transition-transform duration-300">
+<div class="w-20 h-20 rounded-full bg-error-container/40 flex items-center justify-center text-error">
+<span class="material-symbols-outlined scale-150" data-icon="warning">warning</span>
+</div>
+<div class="flex-1">
+<p class="text-xs font-bold font-headline uppercase tracking-widest text-zinc-400">High Risk</p>
+<h3 class="text-3xl font-headline font-bold text-on-surface">18</h3>
+<div class="mt-1 text-error text-xs font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="gpp_maybe">gpp_maybe</span>
+                                Requires Attention
+                            </div>
+</div>
+</div>
+</section>
+<!-- Data Table Section -->
+<section class="bg-white rounded-xl shadow-2xl shadow-purple-500/5 overflow-hidden">
+<div class="p-8 flex justify-between items-center bg-zinc-50/50">
+<h2 class="text-2xl font-headline font-bold text-on-surface">Land Records</h2>
+<div class="flex gap-4">
+<button class="bg-white border-none text-zinc-600 px-5 py-2.5 rounded-full text-sm font-bold shadow-sm hover:shadow-md transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="filter_list">filter_list</span>
+                                Filters
+                            </button>
+<button class="bg-primary text-white px-5 py-2.5 rounded-full text-sm font-bold shadow-lg shadow-primary/20 hover:scale-105 transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="download">download</span>
+                                Export CSV
+                            </button>
+</div>
+</div>
+<div class="overflow-x-auto no-scrollbar">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="text-[10px] uppercase tracking-[0.2em] font-headline font-black text-zinc-400 bg-zinc-50/50">
+<th class="px-8 py-6">Plot ID</th>
+<th class="px-8 py-6">Owner</th>
+<th class="px-8 py-6">Location</th>
+<th class="px-8 py-6">Market Value</th>
+<th class="px-8 py-6">Status</th>
+<th class="px-8 py-6 text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-zinc-50">
+<tr class="hover:bg-zinc-50/80 transition-colors group">
+<td class="px-8 py-6">
+<span class="font-headline font-bold text-primary">SL-8842-AX</span>
+</td>
+<td class="px-8 py-6">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-zinc-200 overflow-hidden">
+<img alt="Owner Avatar" class="w-full h-full object-cover" data-alt="Professional profile headshot of a business woman with soft natural lighting and bokeh background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9aHmfNNKcmFyHZGZG2GtY-v-NrEYc6fYV1_taXAj3abTVKWsORgsKw2REpDWHR8f3TVP51vhCRiFYlCpqJDwayk6sP78BM0ok35vuIjfRWJm3iBvcbfjHmSx-aAEJgMmQ0PSU-TPOHtFkUtfp69MA9JJDCKvOsRdQb2j9tHDrAo99grPau2XsUpjpO62ibZqwvIQ4VcHq5CxxVILp2zqE1AjoedyzwWJlHoqlcgBJrtusmwIonf7ilSpTqETcsMEux2unRoLJK919"/>
+</div>
+<span class="font-medium">Elena Richardson</span>
+</div>
+</td>
+<td class="px-8 py-6 text-zinc-500">Green Valley, Sector 7</td>
+<td class="px-8 py-6 font-medium">$1,240,000</td>
+<td class="px-8 py-6">
+<span class="inline-flex items-center px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 text-[10px] font-black uppercase tracking-wider">Verified</span>
+</td>
+<td class="px-8 py-6 text-right">
+<button class="p-2 rounded-full hover:bg-white hover:shadow-md transition-all text-zinc-400 hover:text-primary">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-zinc-50/80 transition-colors group">
+<td class="px-8 py-6">
+<span class="font-headline font-bold text-primary">SL-9102-BQ</span>
+</td>
+<td class="px-8 py-6">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-zinc-200 overflow-hidden">
+<img alt="Owner Avatar" class="w-full h-full object-cover" data-alt="Close up portrait of a young man with a slight smile and professional background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7CI33aaIuvsNtgT5FpzHV7fjxGP8sG3SVM4i-whgyTRVbKQAkJfMZ3ropXyY2OzgH5HMvWhpDbLCcRpcuf7X5W9A7spMyyoLfObfhwKbe68YGrX9wNXd0BYUgrlMyQQDMsgkwbDdfhyn45GpgNf1tcQgmjxQHErnH9xS_o5erk_dLaD_bFREHmcWnWqgAhhmXdRFrFKxbTc5-NUcrG2NZ265LAgUovikBLj5GdLNbh4CfJ5gzVcxw1Z_lDBYamPJJjFvnAhdLzqDZ"/>
+</div>
+<span class="font-medium">Marcus Chen</span>
+</div>
+</td>
+<td class="px-8 py-6 text-zinc-500">Skyline Heights, Core</td>
+<td class="px-8 py-6 font-medium">$4,850,000</td>
+<td class="px-8 py-6">
+<span class="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-[10px] font-black uppercase tracking-wider">Review</span>
+</td>
+<td class="px-8 py-6 text-right">
+<button class="p-2 rounded-full hover:bg-white hover:shadow-md transition-all text-zinc-400 hover:text-primary">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-zinc-50/80 transition-colors group">
+<td class="px-8 py-6">
+<span class="font-headline font-bold text-primary">SL-4412-ZY</span>
+</td>
+<td class="px-8 py-6">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-zinc-200 overflow-hidden">
+<img alt="Owner Avatar" class="w-full h-full object-cover" data-alt="Modern professional woman in executive attire with a soft city view in background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJuO0O1UQeFNSSX3d1tgLxU-RzluMaowOYjofRgiO-CinKZcM8ky7vqgAqzi2HKxpAbQboEqcqdh7JYnD-YpJbRjUcQctuTOwxYB0qhkIKe6GeichlOpeFZgfxTECDrdL9YWg-Xg1CSfyL8dkK71ti-vtWJJAPXgiasPAXKOwgzrYsN430rZB8-d8AAY5E7rvWRq0OOTVWaMklMpdGQO0NYnzGzYu713--hvAeyUdLjkqjwJ6ewmYrROzcMIbDVwDY3pPwzcNTyO55"/>
+</div>
+<span class="font-medium">Dr. Sarah Vane</span>
+</div>
+</td>
+<td class="px-8 py-6 text-zinc-500">Riverside Marina</td>
+<td class="px-8 py-6 font-medium">$2,100,000</td>
+<td class="px-8 py-6">
+<span class="inline-flex items-center px-3 py-1 rounded-full bg-error-container/40 text-error text-[10px] font-black uppercase tracking-wider">Disputed</span>
+</td>
+<td class="px-8 py-6 text-right">
+<button class="p-2 rounded-full hover:bg-white hover:shadow-md transition-all text-zinc-400 hover:text-primary">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-zinc-50/80 transition-colors group">
+<td class="px-8 py-6">
+<span class="font-headline font-bold text-primary">SL-3301-MK</span>
+</td>
+<td class="px-8 py-6">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-zinc-200 overflow-hidden">
+<img alt="Owner Avatar" class="w-full h-full object-cover" data-alt="Natural looking portrait of a woman in a bright studio setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSiTJA6rgiQ-N93x5C_e601UzRrn4eM2ocqXUnE3hWT2k3cE7u0tjAlFnFXIAYvGPJVEvpq95cK2yn5auZhY8eeHuUKPFYZ2v5rylZdPqG3dZWcqgNPuj3pRvkjiXppiH5XgbUuLXoxpsDOa2W3F0Y4UpRCT9vH9UDSa8FdQB9rNvciBW2DT6mNo8FHKQMHgrNeKohdTUymLiIqdhDPD55QUQVY3_Bjn34CGQBLql7yw2kbYAZJk3AcThPHsy2AanUkRJxRfO_i1EY"/>
+</div>
+<span class="font-medium">Julianna Thorne</span>
+</div>
+</td>
+<td class="px-8 py-6 text-zinc-500">North Ridge Reserve</td>
+<td class="px-8 py-6 font-medium">$890,000</td>
+<td class="px-8 py-6">
+<span class="inline-flex items-center px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 text-[10px] font-black uppercase tracking-wider">Verified</span>
+</td>
+<td class="px-8 py-6 text-right">
+<button class="p-2 rounded-full hover:bg-white hover:shadow-md transition-all text-zinc-400 hover:text-primary">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-8 border-t border-zinc-50 flex justify-between items-center text-sm font-bold text-zinc-400">
+<p>Showing 1-4 of 12,482 entries</p>
+<div class="flex gap-2">
+<button class="w-10 h-10 rounded-full border border-zinc-100 flex items-center justify-center hover:bg-zinc-100 transition-colors">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center shadow-lg shadow-primary/20">1</button>
+<button class="w-10 h-10 rounded-full border border-zinc-100 flex items-center justify-center hover:bg-zinc-100 transition-colors">2</button>
+<button class="w-10 h-10 rounded-full border border-zinc-100 flex items-center justify-center hover:bg-zinc-100 transition-colors">3</button>
+<button class="w-10 h-10 rounded-full border border-zinc-100 flex items-center justify-center hover:bg-zinc-100 transition-colors">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Activity Bento Grid -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<div class="lg:col-span-2 bg-gradient-to-br from-primary to-primary-container rounded-xl p-10 text-white relative overflow-hidden group">
+<div class="relative z-10 space-y-6">
+<span class="inline-block px-4 py-1.5 rounded-full bg-white/20 backdrop-blur-md text-[10px] font-black uppercase tracking-widest">Global Asset Distribution</span>
+<h2 class="text-3xl font-headline font-bold">Institutional Registry Health Index</h2>
+<p class="text-white/80 max-w-md">Real-time cryptographic verification progress across all jurisdictional zones. Current integrity score is at a historical high.</p>
+<div class="flex gap-8 pt-4">
+<div>
+<p class="text-4xl font-headline font-bold">99.8%</p>
+<p class="text-[10px] uppercase font-bold tracking-widest opacity-60">Integrity Score</p>
+</div>
+<div>
+<p class="text-4xl font-headline font-bold">1.2ms</p>
+<p class="text-[10px] uppercase font-bold tracking-widest opacity-60">Avg. Latency</p>
+</div>
+</div>
+</div>
+<div class="absolute right-0 top-0 h-full w-1/3 bg-white/5 skew-x-12 translate-x-12"></div>
+<span class="material-symbols-outlined absolute -bottom-10 -right-10 text-[200px] opacity-10" data-icon="hub">hub</span>
+</div>
+<div class="bg-white rounded-xl p-8 shadow-xl shadow-purple-500/5 space-y-6">
+<h3 class="text-xl font-headline font-bold">Quick Actions</h3>
+<div class="space-y-4">
+<button class="w-full flex items-center gap-4 p-4 rounded-xl bg-zinc-50 hover:bg-primary/5 hover:text-primary transition-all group">
+<div class="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="cloud_upload">cloud_upload</span>
+</div>
+<div class="text-left">
+<p class="text-sm font-bold">Mass Import</p>
+<p class="text-[10px] text-zinc-400">Batch update land files</p>
+</div>
+</button>
+<button class="w-full flex items-center gap-4 p-4 rounded-xl bg-zinc-50 hover:bg-primary/5 hover:text-primary transition-all group">
+<div class="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="history_edu">history_edu</span>
+</div>
+<div class="text-left">
+<p class="text-sm font-bold">Generate Audit</p>
+<p class="text-[10px] text-zinc-400">Export compliance report</p>
+</div>
+</button>
+<button class="w-full flex items-center gap-4 p-4 rounded-xl bg-zinc-50 hover:bg-primary/5 hover:text-primary transition-all group">
+<div class="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+</div>
+<div class="text-left">
+<p class="text-sm font-bold">Market Analysis</p>
+<p class="text-[10px] text-zinc-400">Value fluctuation trends</p>
+</div>
+</button>
+</div>
+</div>
+</section>
+</div>
+</main>
+</div>
+<!-- Mobile Bottom Navigation Shell -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-white/80 backdrop-blur-xl border-t border-zinc-100 flex justify-around items-center px-4 py-3 z-50">
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Dash</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-zinc-400" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance">account_balance</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Land</span>
+</a>
+<div class="-mt-12">
+<button class="w-14 h-14 rounded-full bg-primary text-white shadow-xl shadow-primary/40 flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+</div>
+<a class="flex flex-col items-center gap-1 text-zinc-400" href="#">
+<span class="material-symbols-outlined" data-icon="swap_horiz">swap_horiz</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Swap</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-zinc-400" href="#">
+<span class="material-symbols-outlined" data-icon="cloud_done">cloud_done</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Vault</span>
+</a>
+</nav>
+</body></html>
