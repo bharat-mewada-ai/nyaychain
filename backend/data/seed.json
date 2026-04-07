@@ -1,0 +1,92 @@
+[
+  {
+    "propertyId": "PROP-001",
+    "address": "12 MG Road, Raipur, CG",
+    "area_sqft": 1200,
+    "currentOwner": "Ramesh Kumar",
+    "ownershipHistory": [
+      {
+        "owner": "Govt. Land Bank",
+        "from": "2000-01-01",
+        "to": "2015-06-01",
+        "price": 0
+      },
+      {
+        "owner": "Suresh Sharma",
+        "from": "2015-06-01",
+        "to": "2018-04-10",
+        "price": 850000
+      },
+      {
+        "owner": "Ramesh Kumar",
+        "from": "2018-04-11",
+        "to": null,
+        "price": 2400000
+      }
+    ],
+    "location": {
+      "lat": 21.2514,
+      "lng": 81.6296
+    }
+  },
+  {
+    "propertyId": "PROP-002",
+    "address": "5 Civil Lines, Bhopal, MP",
+    "area_sqft": 3000,
+    "currentOwner": "Priya Mehta",
+    "ownershipHistory": [
+      {
+        "owner": "State Housing Board",
+        "from": "1995-03-01",
+        "to": "2020-08-15",
+        "price": 500000
+      },
+      {
+        "owner": "Priya Mehta",
+        "from": "2020-08-16",
+        "to": null,
+        "price": 5500000
+      }
+    ],
+    "location": {
+      "lat": 23.2599,
+      "lng": 77.4126
+    }
+  },
+  {
+    "propertyId": "PROP-003",
+    "address": "78 Shastri Nagar, Indore, MP",
+    "area_sqft": 800,
+    "currentOwner": "Vijay Patel",
+    "ownershipHistory": [
+      {
+        "owner": "Deepak Joshi",
+        "from": "2010-01-01",
+        "to": "2022-01-15",
+        "price": 300000
+      },
+      {
+        "owner": "Anita Singh",
+        "from": "2022-01-16",
+        "to": "2022-06-01",
+        "price": 310000
+      },
+      {
+        "owner": "Rajiv Gupta",
+        "from": "2022-06-02",
+        "to": "2022-11-01",
+        "price": 320000
+      },
+      {
+        "owner": "Vijay Patel",
+        "from": "2022-11-02",
+        "to": null,
+        "price": 1800000
+      }
+    ],
+    "location": {
+      "lat": 22.7196,
+      "lng": 75.8577
+    }
+  }
+]

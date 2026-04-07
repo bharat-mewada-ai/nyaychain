@@ -1,0 +1,27 @@
+{
+  "name": "nyaychain",
+  "version": "1.0.0",
+  "description": "NyayChain is an AI-powered system that detects land document fraud and ensures secure, tamper-proof ownership records using blockchain.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bharat-mewada-ai/nyaychain.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/bharat-mewada-ai/nyaychain/issues"
+  },
+  "homepage": "https://github.com/bharat-mewada-ai/nyaychain#readme",
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.1",
+    "express": "^5.2.1"
+  }
+}
