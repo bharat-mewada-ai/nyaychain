@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sovereign Ledger | Transfer Flow</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed-dim": "#dbb8ff",
+                    "on-secondary-fixed-variant": "#004d62",
+                    "on-secondary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "error-container": "#ffdad6",
+                    "on-surface": "#1b1b1b",
+                    "primary-fixed-dim": "#d7baff",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-container": "#9747ff",
+                    "on-primary": "#ffffff",
+                    "on-background": "#1b1b1b",
+                    "on-tertiary-fixed-variant": "#58367e",
+                    "tertiary": "#714e98",
+                    "on-secondary-container": "#005a71",
+                    "background": "#f9f9f9",
+                    "secondary-fixed": "#b9eaff",
+                    "inverse-primary": "#d7baff",
+                    "tertiary-container": "#8b67b2",
+                    "primary": "#7d23e4",
+                    "on-surface-variant": "#4b4355",
+                    "surface-container": "#eeeeee",
+                    "outline-variant": "#cec2d8",
+                    "outline": "#7d7387",
+                    "surface-container-high": "#e8e8e8",
+                    "on-tertiary-fixed": "#2b0250",
+                    "secondary-fixed-dim": "#57d5ff",
+                    "surface-bright": "#f9f9f9",
+                    "on-tertiary-container": "#0b001c",
+                    "surface-variant": "#e2e2e2",
+                    "secondary": "#006781",
+                    "surface-dim": "#dadada",
+                    "inverse-on-surface": "#f1f1f1",
+                    "surface-container-low": "#f3f3f3",
+                    "on-primary-fixed-variant": "#6100bd",
+                    "tertiary-fixed": "#efdbff",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-highest": "#e2e2e2",
+                    "on-error-container": "#93000a",
+                    "on-primary-fixed": "#290055",
+                    "secondary-container": "#57d5ff",
+                    "on-secondary-fixed": "#001f29",
+                    "primary-fixed": "#eddcff",
+                    "on-error": "#ffffff",
+                    "inverse-surface": "#303030",
+                    "surface": "#f9f9f9",
+                    "on-primary-container": "#ffffff",
+                    "surface-tint": "#7d23e5"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Space Grotesk"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .font-space-grotesk { font-family: 'Space Grotesk', sans-serif; }
+        .tonal-shift { background-color: rgba(125, 35, 228, 0.03); }
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface overflow-x-hidden">
+<!-- App Shell Wrapper -->
+<div class="flex min-h-screen">
+<!-- SideNavBar (Shared Component) -->
+<aside class="hidden md:flex h-screen w-72 rounded-r-xl sticky left-0 top-0 bg-zinc-50 flex-col p-6 space-y-4 shadow-2xl shadow-purple-500/5 z-40">
+<div class="flex items-center space-x-3 px-4 py-6">
+<div class="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-primary-container flex items-center justify-center shadow-lg shadow-purple-500/20">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">account_balance</span>
+</div>
+<div>
+<h1 class="text-lg font-black text-purple-700 tracking-tight font-headline">Sovereign Ledger</h1>
+<p class="text-[10px] uppercase tracking-widest text-zinc-500 font-label">Institutional Registry</p>
+</div>
+</div>
+<nav class="flex-1 flex flex-col space-y-2 mt-8">
+<a class="flex items-center space-x-4 px-6 py-4 text-zinc-600 hover:bg-zinc-200 rounded-full transition-all hover:scale-105 font-space-grotesk" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center space-x-4 px-6 py-4 text-zinc-600 hover:bg-zinc-200 rounded-full transition-all hover:scale-105 font-space-grotesk" href="#">
+<span class="material-symbols-outlined">account_balance</span>
+<span>Land Records</span>
+</a>
+<a class="flex items-center space-x-4 px-6 py-4 bg-purple-600 text-white rounded-full shadow-lg shadow-purple-500/20 font-space-grotesk" href="#">
+<span class="material-symbols-outlined">swap_horiz</span>
+<span>Transfers</span>
+</a>
+<a class="flex items-center space-x-4 px-6 py-4 text-zinc-600 hover:bg-zinc-200 rounded-full transition-all hover:scale-105 font-space-grotesk" href="#">
+<span class="material-symbols-outlined">cloud_done</span>
+<span>Document Vault</span>
+</a>
+</nav>
+<div class="pt-10">
+<button class="w-full py-4 px-6 bg-gradient-to-r from-primary to-primary-container text-white rounded-full font-bold shadow-xl shadow-purple-500/30 hover:scale-105 transition-transform flex items-center justify-center space-x-2">
+<span class="material-symbols-outlined text-lg">add</span>
+<span>New Record</span>
+</button>
+</div>
+<div class="mt-auto border-t border-zinc-100 pt-6">
+<a class="flex items-center space-x-4 px-6 py-4 text-zinc-600 hover:bg-zinc-200 rounded-full transition-all font-space-grotesk" href="#">
+<span class="material-symbols-outlined">help_outline</span>
+<span>Support</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 flex flex-col min-w-0">
+<!-- TopNavBar (Shared Component) -->
+<header class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl flex justify-between items-center px-8 h-20 shadow-sm md:pr-80 pr-8">
+<div class="flex items-center space-x-8">
+<h2 class="text-xl font-bold tracking-tight text-purple-700 font-space-grotesk">Transfer Protocol</h2>
+<div class="hidden lg:flex items-center bg-zinc-100/50 rounded-full px-4 py-2 space-x-2 w-96">
+<span class="material-symbols-outlined text-zinc-400">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-full font-body" placeholder="Search records, deeds, or identifiers..." type="text"/>
+</div>
+</div>
+<div class="flex items-center space-x-6">
+<button class="text-zinc-500 hover:text-purple-600 transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-zinc-500 hover:text-purple-600 transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary/20">
+<img alt="Administrator Profile" class="w-full h-full object-cover" data-alt="close-up portrait of a professional administrator in a minimal modern office with soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCD1gTXDpA-wYgbW46nuhq8wI3cPTC4rIGC7zz8beR_h07mKdFzpjsxRQwNTSxR1OjSNBMbufONUlLuMP69oZSEyy0bZid2Wg-jN8D_eRauW1CUq_lITd4f6qaUpeJSIHZjStVJNvuc_SffLzhxOWCbNj8CdUMqXMRwn5Dudrjx-mSbpGi4SOdG2AKhH_CjwPaYrZmNl9p3BzzfyFl0O64mrNh7ec6rwVst9vTBvsCZuOb2E06eepE2B2tJU8hS6AeqcH5mCBqzT53c"/>
+</div>
+</div>
+</header>
+<!-- Page Content Area -->
+<div class="mt-20 p-8 lg:p-12 max-w-7xl mx-auto w-full grid grid-cols-12 gap-8">
+<!-- Left Column: Transfer Process -->
+<div class="col-span-12 lg:col-span-8 space-y-8">
+<!-- Header Section -->
+<div class="space-y-2">
+<span class="text-primary font-bold tracking-widest text-xs uppercase font-label">Protocol ID: SL-992-QX</span>
+<h1 class="text-4xl lg:text-5xl font-bold text-on-surface font-headline leading-tight">Land Asset Transfer</h1>
+<p class="text-on-surface-variant text-lg font-body max-w-2xl">Execute institutional-grade asset transfers with biometric verification and legal compliance anchoring.</p>
+</div>
+<!-- Horizontal Stepper -->
+<div class="bg-surface-container-low rounded-xl p-8 shadow-sm">
+<div class="flex items-center justify-between relative">
+<!-- Stepper Line -->
+<div class="absolute top-1/2 left-0 w-full h-[2px] bg-outline-variant -translate-y-1/2 z-0"></div>
+<div class="absolute top-1/2 left-0 w-1/3 h-[2px] bg-primary -translate-y-1/2 z-0"></div>
+<!-- Step 1: Initiation -->
+<div class="relative z-10 flex flex-col items-center space-y-3">
+<div class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center shadow-lg shadow-purple-500/40">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<span class="text-sm font-bold font-space-grotesk text-on-surface">Initiation</span>
+</div>
+<!-- Step 2: Verification -->
+<div class="relative z-10 flex flex-col items-center space-y-3">
+<div class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center ring-8 ring-surface-container-low">
+<span class="material-symbols-outlined">fact_check</span>
+</div>
+<span class="text-sm font-bold font-space-grotesk text-primary">Verification</span>
+</div>
+<!-- Step 3: Approval -->
+<div class="relative z-10 flex flex-col items-center space-y-3">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest text-outline flex items-center justify-center ring-8 ring-surface-container-low">
+<span class="material-symbols-outlined">signature</span>
+</div>
+<span class="text-sm font-bold font-space-grotesk text-outline">Approval</span>
+</div>
+<!-- Step 4: Ownership -->
+<div class="relative z-10 flex flex-col items-center space-y-3">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest text-outline flex items-center justify-center ring-8 ring-surface-container-low">
+<span class="material-symbols-outlined">key</span>
+</div>
+<span class="text-sm font-bold font-space-grotesk text-outline">Ownership</span>
+</div>
+</div>
+</div>
+<!-- Checklist Section -->
+<div class="bg-white rounded-xl p-10 shadow-xl shadow-zinc-200/50 space-y-8">
+<h3 class="text-2xl font-bold font-headline">Compliance Checklist</h3>
+<div class="space-y-6">
+<!-- Item 1 -->
+<div class="flex items-start justify-between p-6 rounded-lg bg-surface-container-lowest border border-outline-variant/10 hover:shadow-md transition-shadow group">
+<div class="flex space-x-6">
+<div class="w-8 h-8 rounded-full border-2 border-primary flex items-center justify-center text-primary mt-1 group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-lg">check</span>
+</div>
+<div>
+<h4 class="font-bold text-lg font-space-grotesk">Identity Verification</h4>
+<p class="text-sm text-on-surface-variant font-body">Biometric hash validation and passport OCR complete.</p>
+</div>
+</div>
+<span class="px-4 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full font-label uppercase">Verified</span>
+</div>
+<!-- Item 2 -->
+<div class="flex items-start justify-between p-6 rounded-lg bg-surface-container-lowest border border-primary/20 shadow-lg shadow-purple-500/5 relative overflow-hidden group">
+<div class="absolute left-0 top-0 h-full w-1 bg-primary"></div>
+<div class="flex space-x-6">
+<div class="w-8 h-8 rounded-full border-2 border-primary flex items-center justify-center text-primary mt-1 animate-pulse">
+<span class="material-symbols-outlined text-lg">sync</span>
+</div>
+<div>
+<h4 class="font-bold text-lg font-space-grotesk">Document Validation</h4>
+<p class="text-sm text-on-surface-variant font-body">Analyzing Title Deed #772-B for digital watermark integrity.</p>
+</div>
+</div>
+<span class="px-4 py-1 bg-primary-fixed text-primary text-xs font-bold rounded-full font-label uppercase">In Progress</span>
+</div>
+<!-- Item 3 -->
+<div class="flex items-start justify-between p-6 rounded-lg bg-surface-container-lowest border border-outline-variant/10 opacity-60 grayscale">
+<div class="flex space-x-6">
+<div class="w-8 h-8 rounded-full border-2 border-zinc-300 flex items-center justify-center text-zinc-300 mt-1">
+<span class="material-symbols-outlined text-lg">lock</span>
+</div>
+<div>
+<h4 class="font-bold text-lg font-space-grotesk">Tax Compliance</h4>
+<p class="text-sm text-on-surface-variant font-body">Pending transfer tax calculation and clearance.</p>
+</div>
+</div>
+<span class="px-4 py-1 bg-zinc-100 text-zinc-500 text-xs font-bold rounded-full font-label uppercase">Locked</span>
+</div>
+</div>
+</div>
+<!-- Asymmetric CTA Section -->
+<div class="flex items-center justify-between pt-4">
+<button class="px-10 py-5 text-zinc-500 font-bold hover:text-zinc-800 transition-colors font-space-grotesk">Cancel Request</button>
+<button class="px-12 py-5 bg-gradient-to-r from-primary to-primary-container text-white rounded-full font-bold shadow-2xl shadow-purple-500/40 hover:scale-105 transition-transform font-space-grotesk flex items-center space-x-3">
+<span>Execute Protocol</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Right Column: Asset Summary (Side Panel) -->
+<div class="col-span-12 lg:col-span-4">
+<div class="sticky top-28 space-y-8">
+<!-- Asset Card -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-2xl shadow-zinc-200/50">
+<div class="h-48 relative">
+<img alt="Rural Highland Estate" class="w-full h-full object-cover" data-alt="aerial drone photography of a lush green rolling hill landscape with a modern minimalist glass villa at sunrise" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-ttirg53D5-jFq4vpNWoFuZKxpGvpvi_oR1fZUyrPrd9ZQganQsOZQUg6rCRFy0RY8UcB1QnlMV97C2M4bKQodM6MvUpr-TnCKzj06HAdXealwgXtSTzQZARW3whJ7fVQPN87kk7yVJeVMs_-us1sGZCgZMimWHYtfAtUWLD_zKhgfdkzUAm-02G4fDJe8LjtpIzZ1TP60dEXhUYLOVcB_Sle26y6K2SZHdSfkTsSLxx70w3dy22rS1vX0ilpRivOUO2a6QX4B0xj"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
+<div class="text-white">
+<h3 class="text-xl font-bold font-headline">The Highland Estate</h3>
+<p class="text-xs opacity-80 font-body">Ref: 772-B-LND</p>
+</div>
+</div>
+</div>
+<div class="p-8 space-y-6">
+<div class="flex justify-between items-center pb-4 border-b border-zinc-100">
+<span class="text-sm text-zinc-500 font-label">Valuation</span>
+<span class="text-xl font-bold text-primary font-space-grotesk">$4,250,000</span>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between">
+<span class="text-sm text-zinc-500 font-body">Current Owner</span>
+<span class="text-sm font-bold font-space-grotesk">Global Trust Corp.</span>
+</div>
+<div class="flex justify-between">
+<span class="text-sm text-zinc-500 font-body">Recipient</span>
+<span class="text-sm font-bold font-space-grotesk">Ethereal Holdings</span>
+</div>
+<div class="flex justify-between">
+<span class="text-sm text-zinc-500 font-body">Location</span>
+<span class="text-sm font-bold font-space-grotesk">Geneva, CH</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Trust Badge -->
+<div class="bg-secondary/5 rounded-xl p-8 flex items-center space-x-6 border border-secondary/10">
+<div class="w-14 h-14 rounded-full bg-secondary/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+</div>
+<div>
+<h4 class="font-bold text-secondary font-headline">Immutable Anchor</h4>
+<p class="text-xs text-on-surface-variant font-body">This transaction is secured by sovereign blockchain protocols and legal smart contracts.</p>
+</div>
+</div>
+<!-- Recent Protocol Activity -->
+<div class="space-y-4">
+<h4 class="text-sm font-bold font-label uppercase tracking-widest text-zinc-400 px-2">Timeline</h4>
+<div class="space-y-4">
+<div class="flex items-start space-x-4 px-2">
+<div class="w-2 h-2 rounded-full bg-primary mt-2"></div>
+<div>
+<p class="text-sm font-bold font-body">Protocol Initiated</p>
+<p class="text-xs text-zinc-400">Today, 09:41 AM by Admin</p>
+</div>
+</div>
+<div class="flex items-start space-x-4 px-2">
+<div class="w-2 h-2 rounded-full bg-primary mt-2"></div>
+<div>
+<p class="text-sm font-bold font-body">Identity Hash Matched</p>
+<p class="text-xs text-zinc-400">Today, 10:05 AM via Biometric Link</p>
+</div>
+</div>
+<div class="flex items-start space-x-4 px-2 opacity-40">
+<div class="w-2 h-2 rounded-full bg-zinc-300 mt-2"></div>
+<div>
+<p class="text-sm font-bold font-body">Legal Clearance Pending</p>
+<p class="text-xs text-zinc-400">Estimated 2h remaining</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Floating Action Tab (Contextual) -->
+<div class="fixed bottom-10 left-1/2 -translate-x-1/2 z-50 bg-white/40 backdrop-blur-2xl border border-white/20 rounded-full px-8 py-4 shadow-2xl shadow-purple-500/10 flex items-center space-x-10">
+<button class="flex flex-col items-center space-y-1 group">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">share</span>
+<span class="text-[10px] font-bold uppercase font-label">Share</span>
+</button>
+<div class="h-8 w-[1px] bg-zinc-200"></div>
+<button class="flex flex-col items-center space-y-1 group">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">print</span>
+<span class="text-[10px] font-bold uppercase font-label">Export</span>
+</button>
+<div class="h-8 w-[1px] bg-zinc-200"></div>
+<button class="flex flex-col items-center space-y-1 group">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">contact_support</span>
+<span class="text-[10px] font-bold uppercase font-label">Review</span>
+</button>
+</div>
+</main>
+</div>
+</body></html>

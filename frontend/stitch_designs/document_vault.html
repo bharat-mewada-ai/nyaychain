@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Document Vault | Sovereign Ledger</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, .font-headline {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary-fixed-dim": "#dbb8ff",
+                      "on-secondary-fixed-variant": "#004d62",
+                      "on-secondary": "#ffffff",
+                      "error": "#ba1a1a",
+                      "error-container": "#ffdad6",
+                      "on-surface": "#1b1b1b",
+                      "primary-fixed-dim": "#d7baff",
+                      "surface-container-lowest": "#ffffff",
+                      "primary-container": "#9747ff",
+                      "on-primary": "#ffffff",
+                      "on-background": "#1b1b1b",
+                      "on-tertiary-fixed-variant": "#58367e",
+                      "tertiary": "#714e98",
+                      "on-secondary-container": "#005a71",
+                      "background": "#f9f9f9",
+                      "secondary-fixed": "#b9eaff",
+                      "inverse-primary": "#d7baff",
+                      "tertiary-container": "#8b67b2",
+                      "primary": "#7d23e4",
+                      "on-surface-variant": "#4b4355",
+                      "surface-container": "#eeeeee",
+                      "outline-variant": "#cec2d8",
+                      "outline": "#7d7387",
+                      "surface-container-high": "#e8e8e8",
+                      "on-tertiary-fixed": "#2b0250",
+                      "secondary-fixed-dim": "#57d5ff",
+                      "surface-bright": "#f9f9f9",
+                      "on-tertiary-container": "#0b001c",
+                      "surface-variant": "#e2e2e2",
+                      "secondary": "#006781",
+                      "surface-dim": "#dadada",
+                      "inverse-on-surface": "#f1f1f1",
+                      "surface-container-low": "#f3f3f3",
+                      "on-primary-fixed-variant": "#6100bd",
+                      "tertiary-fixed": "#efdbff",
+                      "on-tertiary": "#ffffff",
+                      "surface-container-highest": "#e2e2e2",
+                      "on-error-container": "#93000a",
+                      "on-primary-fixed": "#290055",
+                      "secondary-container": "#57d5ff",
+                      "on-secondary-fixed": "#001f29",
+                      "primary-fixed": "#eddcff",
+                      "on-error": "#ffffff",
+                      "inverse-surface": "#303030",
+                      "surface": "#f9f9f9",
+                      "on-primary-container": "#ffffff",
+                      "surface-tint": "#7d23e5"
+              },
+              "borderRadius": {
+                      "DEFAULT": "1rem",
+                      "lg": "2rem",
+                      "xl": "3rem",
+                      "full": "9999px"
+              },
+              "fontFamily": {
+                      "headline": ["Space Grotesk"],
+                      "body": ["Inter"],
+                      "label": ["Inter"]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface min-h-screen flex overflow-hidden">
+<!-- Sidebar Navigation -->
+<aside class="h-screen w-72 rounded-r-xl sticky left-0 top-0 bg-zinc-50 dark:bg-zinc-900 flex flex-col p-6 space-y-4 shadow-2xl shadow-purple-500/5 font-space-grotesk z-40">
+<div class="flex items-center space-x-3 mb-8 px-4">
+<div class="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-primary-container flex items-center justify-center text-white">
+<span class="material-symbols-outlined" data-icon="account_balance">account_balance</span>
+</div>
+<div>
+<h2 class="text-lg font-black text-purple-700 dark:text-purple-300 leading-tight">Sovereign Ledger</h2>
+<p class="text-xs text-zinc-500 font-medium tracking-widest uppercase">Institutional Registry</p>
+</div>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center space-x-4 px-6 py-4 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-800 rounded-full transition-all hover:scale-105" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-medium">Dashboard</span>
+</a>
+<a class="flex items-center space-x-4 px-6 py-4 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-800 rounded-full transition-all hover:scale-105" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance">account_balance</span>
+<span class="font-medium">Land Records</span>
+</a>
+<a class="flex items-center space-x-4 px-6 py-4 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-800 rounded-full transition-all hover:scale-105" href="#">
+<span class="material-symbols-outlined" data-icon="swap_horiz">swap_horiz</span>
+<span class="font-medium">Transfers</span>
+</a>
+<a class="flex items-center space-x-4 px-6 py-4 bg-purple-600 text-white rounded-full shadow-lg shadow-purple-500/20 transition-all scale-105" href="#">
+<span class="material-symbols-outlined" data-icon="cloud_done">cloud_done</span>
+<span class="font-medium">Document Vault</span>
+</a>
+</nav>
+<div class="pt-8 mt-auto border-t border-zinc-100">
+<button class="w-full bg-primary py-4 px-6 rounded-xl text-white font-bold flex items-center justify-center space-x-2 shadow-lg shadow-purple-500/20 hover:brightness-110 transition-all">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+<span>New Record</span>
+</button>
+<a class="flex items-center space-x-4 px-6 py-4 mt-4 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-800 rounded-full transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+<span class="font-medium">Support</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 overflow-y-auto relative h-screen">
+<!-- Top Nav Bar -->
+<header class="fixed top-0 right-0 left-72 z-30 flex justify-between items-center px-12 h-24 bg-white/70 backdrop-blur-xl transition-all">
+<div class="flex items-center bg-surface-container-low px-6 py-3 rounded-full w-96">
+<span class="material-symbols-outlined text-zinc-400 mr-3" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-full font-body" placeholder="Search instruments..." type="text"/>
+</div>
+<div class="flex items-center space-x-6">
+<button class="relative text-zinc-500 hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="text-zinc-500 hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-container p-0.5">
+<img alt="Administrator Profile" class="w-full h-full object-cover rounded-full" data-alt="Close up portrait of a professional male administrator in a clean office environment with soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7QgCVnj5U0e2sQ2ibT6Uh_N0pgrRmpoGOJWY50jxOPvlkm1P1dNoXbPpG3hKrCz3g9plIptIp6FicSEI2z8RVj5_CqrEpW2COOrvLHHyVeWp9p25i-DXpMQf9Rnw414c3rdMkW0-Nv9uDDvdaJpW2uZ-brRoUIu_sDNl1gN5EsiO06Y6w_tgfeaoFXJ9jNpHrx66qW_bTErLNswhtcp-IuRxYQrtIgcEcBp23wobNGzCGdPw5vQfYK336ypSnHbfZio2xfVWECrvs"/>
+</div>
+</div>
+</header>
+<div class="pt-32 px-12 pb-24 max-w-7xl mx-auto">
+<!-- Hero Title Section -->
+<section class="mb-16">
+<span class="text-primary font-bold tracking-[0.2em] uppercase text-xs mb-4 block">Secure Institutional Repository</span>
+<h1 class="text-6xl font-headline font-bold text-on-surface tracking-tight leading-none mb-6">Document Vault</h1>
+<p class="text-lg text-on-surface-variant max-w-2xl font-body leading-relaxed">
+                    Immutable storage for high-value sovereign assets. Every instrument is cryptographically hashed and anchored to the Ledger.
+                </p>
+</section>
+<!-- Document Categories Bento Grid -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+<!-- Title Deeds -->
+<div class="col-span-1 md:col-span-2 group relative overflow-hidden bg-surface-container-low rounded-xl p-10 h-80 flex flex-col justify-between transition-all hover:bg-surface-container-high shadow-sm">
+<div class="absolute -right-8 -top-8 w-64 h-64 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-colors"></div>
+<div class="relative z-10">
+<div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-primary shadow-sm mb-6">
+<span class="material-symbols-outlined text-3xl" data-icon="foundation">foundation</span>
+</div>
+<h3 class="text-3xl font-headline font-bold mb-2">Title Deeds</h3>
+<p class="text-on-surface-variant font-body">142 Registered Assets</p>
+</div>
+<div class="relative z-10 flex items-center justify-between">
+<button class="text-primary font-bold flex items-center space-x-2 group-hover:translate-x-2 transition-transform">
+<span>Manage Registry</span>
+<span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-white bg-zinc-200"></div>
+<div class="w-8 h-8 rounded-full border-2 border-white bg-zinc-300"></div>
+<div class="w-8 h-8 rounded-full border-2 border-white bg-primary text-[10px] text-white flex items-center justify-center font-bold">+12</div>
+</div>
+</div>
+</div>
+<!-- Tax Certificates -->
+<div class="bg-primary rounded-xl p-10 h-80 flex flex-col justify-between text-white shadow-xl shadow-purple-500/10">
+<div>
+<div class="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center text-white mb-6">
+<span class="material-symbols-outlined text-3xl" data-icon="verified">verified</span>
+</div>
+<h3 class="text-3xl font-headline font-bold mb-2">Tax Certs</h3>
+<p class="text-purple-100 font-body">Compliance Verified</p>
+</div>
+<button class="bg-white text-primary px-6 py-3 rounded-full font-bold self-start hover:scale-105 transition-transform">
+                        Verify New
+                    </button>
+</div>
+<!-- Legal Gazettes -->
+<div class="bg-surface-container-low rounded-xl p-10 h-80 flex flex-col justify-between hover:bg-surface-container-high transition-all">
+<div>
+<div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-secondary shadow-sm mb-6">
+<span class="material-symbols-outlined text-3xl" data-icon="gavel">gavel</span>
+</div>
+<h3 class="text-3xl font-headline font-bold mb-2">Legal Gazettes</h3>
+<p class="text-on-surface-variant font-body">Legislative Frameworks</p>
+</div>
+<button class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center text-on-surface-variant hover:border-primary hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="open_in_new">open_in_new</span>
+</button>
+</div>
+<!-- Mortgage Liens -->
+<div class="bg-surface-container-low rounded-xl p-10 h-80 flex flex-col justify-between hover:bg-surface-container-high transition-all">
+<div>
+<div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-tertiary shadow-sm mb-6">
+<span class="material-symbols-outlined text-3xl" data-icon="real_estate_agent">real_estate_agent</span>
+</div>
+<h3 class="text-3xl font-headline font-bold mb-2">Mortgage Liens</h3>
+<p class="text-on-surface-variant font-body">Secured Interests</p>
+</div>
+<div class="text-sm font-medium py-1 px-3 bg-tertiary-fixed text-on-tertiary-fixed w-fit rounded-full uppercase tracking-wider">Active Portfolio</div>
+</div>
+<!-- Archival Documents -->
+<div class="bg-zinc-900 rounded-xl p-10 h-80 flex flex-col justify-between text-white">
+<div>
+<div class="w-14 h-14 bg-zinc-800 rounded-2xl flex items-center justify-center text-zinc-400 mb-6">
+<span class="material-symbols-outlined text-3xl" data-icon="history_edu">history_edu</span>
+</div>
+<h3 class="text-3xl font-headline font-bold mb-2">Historical</h3>
+<p class="text-zinc-400 font-body">Legacy Records</p>
+</div>
+<div class="flex items-center space-x-2 text-zinc-500">
+<span class="material-symbols-outlined text-sm" data-icon="lock">lock</span>
+<span class="text-xs uppercase tracking-widest">Deep Storage</span>
+</div>
+</div>
+</section>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+<!-- Recent Activity List -->
+<div class="lg:col-span-2">
+<div class="flex items-center justify-between mb-8">
+<h2 class="text-3xl font-headline font-bold">Recent Activity</h2>
+<button class="text-sm text-primary font-bold hover:underline">View All Audit Logs</button>
+</div>
+<div class="space-y-4">
+<!-- Activity Item 1 -->
+<div class="bg-white p-6 rounded-xl flex items-center justify-between group hover:shadow-xl transition-shadow border border-transparent hover:border-outline-variant/10">
+<div class="flex items-center space-x-6">
+<div class="w-12 h-12 bg-surface-container rounded-full flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+</div>
+<div>
+<h4 class="font-bold text-lg font-headline">Deed_4021_NorthRidge.pdf</h4>
+<p class="text-sm text-on-surface-variant">Validated by Ledger Node #042</p>
+</div>
+</div>
+<div class="flex flex-col items-end space-y-2">
+<span class="text-xs font-mono bg-green-50 text-green-700 px-3 py-1 rounded-full flex items-center">
+<span class="material-symbols-outlined text-xs mr-1" data-icon="verified" data-weight="fill">verified</span>
+                                    Verified 0x4f...92e
+                                </span>
+<span class="text-xs text-zinc-400 font-body">2 minutes ago</span>
+</div>
+</div>
+<!-- Activity Item 2 -->
+<div class="bg-white p-6 rounded-xl flex items-center justify-between group hover:shadow-xl transition-shadow border border-transparent hover:border-outline-variant/10">
+<div class="flex items-center space-x-6">
+<div class="w-12 h-12 bg-surface-container rounded-full flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+</div>
+<div>
+<h4 class="font-bold text-lg font-headline">Tax_Cert_2023_Q4_Final.pdf</h4>
+<p class="text-sm text-on-surface-variant">Digital Signature Applied</p>
+</div>
+</div>
+<div class="flex flex-col items-end space-y-2">
+<span class="text-xs font-mono bg-blue-50 text-blue-700 px-3 py-1 rounded-full flex items-center">
+<span class="material-symbols-outlined text-xs mr-1" data-icon="history">history</span>
+                                    Pending Anchor
+                                </span>
+<span class="text-xs text-zinc-400 font-body">14 minutes ago</span>
+</div>
+</div>
+<!-- Activity Item 3 -->
+<div class="bg-white p-6 rounded-xl flex items-center justify-between group hover:shadow-xl transition-shadow border border-transparent hover:border-outline-variant/10">
+<div class="flex items-center space-x-6">
+<div class="w-12 h-12 bg-surface-container rounded-full flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="picture_as_pdf">picture_as_pdf</span>
+</div>
+<div>
+<h4 class="font-bold text-lg font-headline">Survey_Map_Plot_009.pdf</h4>
+<p class="text-sm text-on-surface-variant">Full Encryption Complete</p>
+</div>
+</div>
+<div class="flex flex-col items-end space-y-2">
+<span class="text-xs font-mono bg-green-50 text-green-700 px-3 py-1 rounded-full flex items-center">
+<span class="material-symbols-outlined text-xs mr-1" data-icon="verified" data-weight="fill">verified</span>
+                                    Verified 0x8a...331
+                                </span>
+<span class="text-xs text-zinc-400 font-body">1 hour ago</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Upload Section -->
+<div class="lg:col-span-1">
+<h2 class="text-3xl font-headline font-bold mb-8">Ingestion</h2>
+<div class="bg-surface-container-lowest border-2 border-dashed border-outline-variant rounded-xl p-10 flex flex-col items-center text-center space-y-6 hover:bg-purple-50 hover:border-primary transition-all group">
+<div class="w-20 h-20 bg-primary/5 rounded-full flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl" data-icon="cloud_upload">cloud_upload</span>
+</div>
+<div>
+<h3 class="text-xl font-headline font-bold mb-2">Upload New Instrument</h3>
+<p class="text-sm text-on-surface-variant font-body">Drag and drop files here to begin cryptographic anchoring.</p>
+</div>
+<div class="w-full space-y-3">
+<button class="w-full bg-primary text-white py-4 rounded-xl font-bold shadow-md hover:brightness-110 transition-all">
+                                Select File
+                            </button>
+<p class="text-[10px] uppercase tracking-widest text-zinc-400 font-medium">Supported: PDF, TIFF, SVG, CAD</p>
+</div>
+</div>
+<!-- Security Metrics Card -->
+<div class="mt-8 bg-zinc-900 rounded-xl p-8 text-white relative overflow-hidden">
+<div class="absolute -right-10 -bottom-10 w-40 h-40 bg-primary/20 rounded-full blur-3xl"></div>
+<div class="relative z-10">
+<div class="flex items-center space-x-3 mb-6">
+<span class="material-symbols-outlined text-primary" data-icon="shield">shield</span>
+<span class="text-sm font-bold uppercase tracking-widest">Security Status</span>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<span class="text-zinc-400 text-sm">Node Consistency</span>
+<span class="text-green-400 font-mono">100%</span>
+</div>
+<div class="w-full bg-zinc-800 h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary w-full h-full"></div>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-zinc-400 text-sm">Last Block Hash</span>
+<span class="text-zinc-500 font-mono text-[10px]">9e3b...f2a0</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Quick Actions -->
+<div class="fixed bottom-12 right-12 flex flex-col space-y-4 z-50">
+<button class="w-14 h-14 glass-panel border border-white/20 text-on-surface rounded-full shadow-2xl flex items-center justify-center hover:bg-primary hover:text-white transition-all hover:scale-110 group">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="absolute right-16 bg-zinc-900 text-white px-3 py-1 rounded text-xs opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">View History</span>
+</button>
+<button class="w-14 h-14 glass-panel border border-white/20 text-on-surface rounded-full shadow-2xl flex items-center justify-center hover:bg-primary hover:text-white transition-all hover:scale-110 group">
+<span class="material-symbols-outlined" data-icon="print">print</span>
+<span class="absolute right-16 bg-zinc-900 text-white px-3 py-1 rounded text-xs opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">Print Certified</span>
+</button>
+</div>
+</body></html>
