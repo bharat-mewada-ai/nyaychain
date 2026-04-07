@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
+const ctrl = require('../controllers/ledgerController');
 
-router.get('/', (req, res) => {
-  res.json({ message: "Ledger working" });
-});
+router.get('/:id', ctrl.getLedger);
+router.get('/:id/verify', ctrl.verify);
 
 module.exports = router;
