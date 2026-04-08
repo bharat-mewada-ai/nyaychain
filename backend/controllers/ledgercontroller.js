@@ -1,16 +1,11 @@
-const { verifyLedger } = require('../services/hashService');
-
-let ledger = [];
+const { ledger } = require('../services/ledgerStore');
 
 exports.getLedger = (req, res) => {
   const propertyId = req.params.id;
 
-  const filtered = ledger.filter(l => l.data.propertyId === propertyId);
+  const filtered = ledger.filter(
+    entry => entry.data.propertyId === propertyId
+  );
 
   res.json(filtered);
-};
-
-exports.verify = (req, res) => {
-  const valid = verifyLedger(ledger);
-  res.json({ valid });
 };
