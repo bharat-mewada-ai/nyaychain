@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const API = "http://localhost:5000/api";
+// Use your Render backend URL
+const API = "https://nyaychain-mzlk.onrender.com/api";
 
 export const getProperty = (id) => axios.get(`${API}/properties/${id}`);
 export const runAnalysis = (id) => axios.post(`${API}/analysis/${id}`);
